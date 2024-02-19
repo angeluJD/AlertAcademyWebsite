@@ -1,0 +1,56 @@
+body {
+	background-color: lightblue;
+	overflow-x: hidden;
+}
+
+.container {
+	background: #fff;
+	width: 540px;
+	height: 450px;
+	margin: 0 auto;
+	position: relative;
+	margin-top: 10%;
+	box-shadow: 2px 5px 20px
+	rgba(119, 119, 119, .5);
+}
+
+.leftbox {
+	float: left;
+	top: -5%;
+	left: -5%;
+	position: absolute;
+	width: 15%;
+	height: 110%;
+	background-color: darkblue;
+	box-shadow: 3px 3px 10px
+	rgba(119, 119, 119, .5);
+	border: .lem solid #fff;
+}
+
+.rightbox {
+	display: none;
+}
+
+
+nav a {
+	list-style: none;
+	padding: 35px;
+	color: #fff;
+	font-size: 1.1em;
+	display: block;
+	transition: all .3s ease-in-out;
+}
+
+nav a:hover {
+	color: #10ac84;
+	cursor: pointer;
+	transform: scale(1.2);
+}
+
+nav a:first-child {
+	margin-top: 7px;
+}
+
+nav a.active {
+	color: #10ac84;
+}
