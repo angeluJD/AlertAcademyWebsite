@@ -14,7 +14,7 @@ Password VARCHAR(30) NOT NULL UNIQUE,
 
 CONSTRAINT Person_pk PRIMARY KEY (Person_ID)) engine=innodb;
 
-INSERT INTO Person VALUES(NULL, '', '', 'admin', 'password');
+INSERT INTO Person VALUES(NULL, '', '', '', 'password', 'admin');
 
 /* check minimum length of password on front-end */
 
