@@ -27,11 +27,6 @@ body {
 	border: .lem solid #fff;
 }
 
-.rightbox {
-	display: none;
-}
-
-
 nav a {
 	list-style: none;
 	padding: 35px;
@@ -53,4 +48,21 @@ nav a:first-child {
 
 nav a.active {
 	color: #10ac84;
+}
+
+.rightbox {
+	width: 60%;
+	margin-left: 27%;
+}
+
+.tabShow {
+	transition: all .5s ease-in;
+	width: 80%
+}
+h1 {
+	font-family: "Montserrat, sans-serif"
+	color: darkgrey;
+	font-size: 1.2rem;
+	margin-top: 40px;
+	margin-bottom: 35px;
 }
