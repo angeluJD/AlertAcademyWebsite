@@ -86,3 +86,18 @@ input, p{
 	color: #070707;
 	outline: none;
 }
+
+span{
+	font-size: .7em;
+	color: #777;
+}
+
+.btn{
+	font-family: "roboto", sans-serif;
+	text-transform: uppercase;
+	font-size: 15px;
+	border: 0;
+	color: #fff;
+	background: #7ed386;
+	padding: 7px 15px;
+}
