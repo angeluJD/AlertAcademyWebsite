@@ -11,15 +11,15 @@
 		<div class="leftbox">
 			<nav>
 				<a onclick="tabs(0)" class="tab">
-					<i class="fa fa-user"></i>
+					<i class="fa fa-user">User</i>
 				</a>
 
 				<a onclick="tabs(1)" class="tab">
-					<i class="fa fa-user"></i>
+					<i class="fa fa-user">Privacy</i>
 				</a>
 				
 				<a onclick="tabs(2)" class="tab">
-					<i class="fa fa-user"></i>
+					<i class="fa fa-user">Settings</i>
 				</a>
 
 			</nav>
@@ -83,8 +83,12 @@
 		const tab = document.querySelector(".tabShow");
 
 		function tabs(panelIndex){
-			tab.forEach(function(node))
+			tab.forEach(function(node) {
+				node.style.display = "none";
+			});
+			tab[panelIndex].style.display = "block";
 		}
+		tabs(0);
 	</script>
 	<script>
 
