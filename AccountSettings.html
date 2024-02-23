@@ -91,7 +91,9 @@
 		tabs(0);
 	</script>
 	<script>
-
+		$(".tab") .click(function(){
+			$(this).addClass("active").siblings().removeClass("active")
+		})
 	</script>
 </body>
 </html>
