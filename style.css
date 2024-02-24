@@ -19,7 +19,7 @@ body {
 	top: -5%;
 	left: -5%;
 	position: absolute;
-	width: 15%;
+	width: 75%;
 	height: 110%;
 	background-color: darkorange;
 	box-shadow: 3px 3px 10px
@@ -53,6 +53,7 @@ nav a.active {
 .rightbox {
 	width: 60%;
 	margin-left: 27%;
+	padding-top: 5px;
 }
 
 .tabShow {
@@ -104,8 +105,4 @@ span{
 	rgba(0, 0, 0, 0.2);
 	cursor: pointer;
 	margin-top: 15px;
-}
-
-.tabShow{
-	m
 }
