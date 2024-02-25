@@ -37,7 +37,7 @@ else {
     if ($conn->query($sql) === TRUE) {
         // Registration successful
 
-        echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Current_User', '$usr') </script>";
+        echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Current_User', '$username') </script>";
         
         include('AlertAcademyHomeScreenCode.html');
     } else {
