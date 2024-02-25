@@ -33,8 +33,9 @@ else{
 	//print ("$count");
 	
 	if ($count == 1) {
+		echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Current_User', '$usr') </script>"; 
+		
 		include('AlertAcademyHomeScreenCode.html');
-
 	}
 	else {
 		 echo '<script> 
