@@ -45,7 +45,6 @@ else{
 
 	}
 }		// if match, go to page, else, send message to user
-		// move code into HTML file because of message?
 
 $mysqli->close();
 ?>
