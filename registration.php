@@ -40,6 +40,8 @@ else {
         echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Current_User', '$username') </script>";
 
         echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Num_Classes', '1') </script>";
+
+        echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Num_Assignments', '0') </script>";
         
         include('AlertAcademyHomeScreenCode.html');
     } else {
