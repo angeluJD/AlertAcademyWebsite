@@ -27,18 +27,26 @@ else{
 	//print("$q");
 	
 	$query = $mysqli->query("$q");
-	
 	$count = $query->num_rows;
 	
 	//print ("$count");
+
+	$query2 = $mysqli->query("SELECT ClsID FROM Cls WHERE Cls.Person_ID = (select Person.Person_ID from Person where UsrNm = '$usr' && Password = '$pass')");
+	$count2 = $query2->num_rows;
 	
-	if ($count == 1) {
-		$query = $mysqli->query("SELECT ClsID FROM Cls WHERE Person_ID = '$usr'");
-		$count = $query->num_rows;
-		
+	//print ("$count2");
+	
+	$query3 = $mysqli->query("SELECT Assign_ID FROM Assign WHERE Person_ID = (select Person.Person_ID from Person where UsrNm = '$usr' && Password = '$pass')");
+	$count3 = $query3->num_rows;
+	
+	//print ("$count3");
+	
+	if ($count == 1) {		
 		echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Current_User', '$usr') </script>"; 
 
-		echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Num_Classes', '$count') </script>";
+		echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Num_Classes', '$count2') </script>";
+
+		echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Num_Assignments', '$count3') </script>";
 		
 		include('AlertAcademyHomeScreenCode.html');
 	}
