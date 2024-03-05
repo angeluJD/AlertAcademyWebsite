@@ -33,7 +33,12 @@ else{
 	//print ("$count");
 	
 	if ($count == 1) {
+		$query = $mysqli->query("SELECT ClsID FROM Cls WHERE Person_ID = '$usr'");
+		$count = $query->num_rows;
+		
 		echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Current_User', '$usr') </script>"; 
+
+		echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Num_Classes', '$count') </script>";
 		
 		include('AlertAcademyHomeScreenCode.html');
 	}
