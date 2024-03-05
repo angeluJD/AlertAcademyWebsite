@@ -19,7 +19,7 @@ body {
 	top: -5%;
 	left: -5%;
 	position: absolute;
-	width: 75%;
+	width: 70%;
 	height: 110%;
 	background-color: darkorange;
 	box-shadow: 3px 3px 10px
@@ -80,7 +80,7 @@ h2 {
 input, p{
 	border: 0;
 	border-bottom: 1px solid #3fb6a8;
-	width: 80%;
+	width: 70%;
 	font-family: 'monteserrat', sans-serif;
 	font-size: .7em;
 	padding: 7px 0;
