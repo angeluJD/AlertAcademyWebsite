@@ -1,11 +1,11 @@
 body {
-	background-color: white;
+	background-color: lightblue;
 	overflow-x: hidden;
 }
 
 .container {
 	background: #fff;
-	width: 180px;
+	width: 540px;
 	height: 450px;
 	margin: 0 auto;
 	position: relative;
@@ -19,9 +19,9 @@ body {
 	top: -5%;
 	left: -5%;
 	position: absolute;
-	width: 80%;
+	width: 15%;
 	height: 110%;
-	background-color: darkorange;
+	background-color: darkblue;
 	box-shadow: 3px 3px 10px
 	rgba(119, 119, 119, .5);
 	border: .lem solid #fff;
@@ -53,7 +53,6 @@ nav a.active {
 .rightbox {
 	width: 60%;
 	margin-left: 27%;
-	padding-top: 5px;
 }
 
 .tabShow {
