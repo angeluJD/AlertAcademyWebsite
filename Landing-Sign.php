@@ -13,6 +13,8 @@ $database = 'AlertAcademy'; //To be completed to connect to a database. The data
 $port = NULL; //Default must be NULL to use default port
 $mysqli = new mysqli('127.0.0.1', $user, $password, $database, $port);
 
+session_start();
+
 if ($mysqli->connect_error) {
     die('Connect Error (' . $mysqli->connect_errno . ') '
             . $mysqli->connect_error);
@@ -32,7 +34,9 @@ else{
 	//print ("$count");
 	
 	if ($count == 1) {		
-		echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Current_User', '$usr') </script>";
+		echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Current_User', '$usr') </script>";	// sends info to HTML segment of new page
+
+		$_SESSION['thisuser'] = $usr;	// Sends info to PHP code in next page
 		
 		include('AlertAcademyHomeScreenCode.php');
 	}
