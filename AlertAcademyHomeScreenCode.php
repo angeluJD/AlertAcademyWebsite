@@ -65,6 +65,27 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells page which user to
 alert(User);
 </script>
 
+<?php
+$user = 'root';
+$password = 'Access1998!';
+$database = 'AlertAcademy';
+$port = NULL;
+$Con = new mysqli('127.0.0.1', $user, $password, $database, $port);
+
+if ($Con->connect_error) {
+    die('Connect Error (' . $Con->connect_errno . ') '
+            . $Con->connect_error);
+}
+else{
+	$U = $_SESSION['thisuser'];	// tells PHP code which user is in use
+	
+	$q = "select ClsName, Color, ProfName, School, Assign_Name, Due from assign, cls where Assign.Person_ID = cls.Person_ID && cls.ClsID = Assign.ClsID && Assign.Person_Id = '$U' order by cls.School";
+	
+}
+
+$Con->close();
+?>
+
 <script type=“text/javascript”>
    
 </script>
