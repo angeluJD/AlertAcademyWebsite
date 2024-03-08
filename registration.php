@@ -15,6 +15,7 @@ $port = 8889; //Default must be NULL to use default port
 // Create connection
 $conn = new mysqli('localhost', $user, $password, $database, $port);
 
+session_start();
 
 if ($conn->connect_error) {
     die('Connect Error (' . $conn->connect_errno . ') '
@@ -37,7 +38,9 @@ else {
     if ($conn->query($sql) === TRUE) {
         // Registration successful
 
-        echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Current_User', '$username') </script>";
+        echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Current_User', '$username') </script>"; // passes info to HTML code in new page
+
+        $_SESSION['thisuser'] = $username;    // passes info to PHP code in new page
         
         include('AlertAcademyHomeScreenCode.php');
     } else {
