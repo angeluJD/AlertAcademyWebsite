@@ -79,7 +79,9 @@ if ($Con->connect_error) {
 else{
 	$U = $_SESSION['thisuser'];	// tells PHP code which user is in use
 	
-	$q = "select ClsName, Color, ProfName, School, Assign_Name, Due from assign, cls where Assign.Person_ID = cls.Person_ID && cls.ClsID = Assign.ClsID && Assign.Person_Id = '$U' order by cls.School";
+	$q = "mysql> select ClsID from cls where cls.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U')";
+	
+	$Class_ID_List = $Con->query("$q");
 	
 }
 
