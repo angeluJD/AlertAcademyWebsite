@@ -79,7 +79,7 @@ if ($Con->connect_error) {
 else{
 	$U = $_SESSION['thisuser'];	// tells PHP code which user is in use
 	
-	$q = "mysql> select ClsID from cls where cls.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U')";
+	$q = "select ClsID from cls where cls.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U')";
 	
 	$Class_ID_List = $Con->query("$q");
 	
