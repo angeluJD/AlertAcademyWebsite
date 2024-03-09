@@ -82,7 +82,17 @@ else{
 	$q = "select ClsID from cls where cls.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U')";
 	
 	$Class_ID_List = $Con->query("$q");
+
+	// $n = $Class_ID_List->num_rows;
 	
+	if (Class_ID_List->num_rows > 0) {
+	  // output data of each row
+	  while($row = $result->fetch_assoc()) {
+		// echo data for each class row
+		
+		// inner loop for assignments in each class
+	  }
+	}
 }
 
 $Con->close();
