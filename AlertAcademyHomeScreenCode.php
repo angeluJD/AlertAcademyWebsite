@@ -79,7 +79,7 @@ if ($Con->connect_error) {
 else{
 	$U = $_SESSION['thisuser'];	// tells PHP code which user is in use
 	
-	$q = "select ClsID from cls where cls.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U')";
+	$q = "select ClsName, Color, ProfName, School from cls where cls.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U')";
 	
 	$Class_ID_List = $Con->query("$q");
 	
@@ -87,13 +87,15 @@ else{
 	
 	if ($Class_ID_List->num_rows > 0) {
 		
-		echo "<script type=\"text/JavaScript\">  var classes = [0] </script>";
+		//echo "<script type=\"text/JavaScript\">  var classes = [0] </script>";	// create JavaScript array?
 	  
-	  while($row = $Class_ID_List->fetch_assoc()) {			// loop for classes
-		  
-		 $C = $row["ClsID"];
+	  while($row = $Class_ID_List->fetch_assoc()) {			// loop for classes 
+		 $C = $row["ClsName"];
+		 $Col = $row["Color"];
+		 $Prof = $row["ProfName"];
+		 $Sch = $row["School"];
 		 
-		 echo $C. "<br>";
+		 echo "Class name: ". $C. " - Color #: ". $Col. " - Professor: ". $Prof. " - School: ". $Sch.  "<br>";
 		  
 		// can't do inner loop, must have 2 distinct loops for classes & Assignments
 	  }
