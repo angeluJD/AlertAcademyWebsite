@@ -99,6 +99,24 @@ else{
 		  
 		// can't do inner loop, must have 2 distinct loops for classes & Assignments
 	  }
+	}	// end of class data
+
+	echo "<br>";
+	
+	$q = "select Assign_Name, Due, Descrip, Color from Assign, Cls where Assign.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U') && (Assign.ClsID = Cls.ClsID) order by Assign.ClsID";
+	  
+	$Assign_List = $Con->query("$q");
+	
+	if ($Assign_List->num_rows > 0){
+		while($row = $Assign_List->fetch_assoc()){			// assignment loop
+			$N = $row["Assign_Name"];
+			$Due = $row["Due"];
+			$Desc = $row["Descrip"];
+			$Col = $row["Color"];
+			
+			echo "Assignment name: ". $N. " - Due Date: ". $Due. " - Description: ". $Desc. " - Color #: ". $Col. "<br>";
+		}
+		
 	}
 }
 
