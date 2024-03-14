@@ -139,8 +139,16 @@ $Con->close();
 			<a href="assignment">+Assignment</a> <!-- This is where the adding assignment is going to be located so I am just waiting on the codes for these to work when it comes to the html codes, Angelu-->
 			<a href="setting">Settings</a> <!--This is where the settings link is going to be connected considering that in the template that I made show what the setting will look like, Angelu-->
 			<a href="help">Help</a> <!-- This is the help button; however, I do not know if we should add the help button, Angelu -->
-			<button id="logout-button" disabled>Logout</button>
+			<button id="logout-button" onclick="logoutFunction()">Logout</button>
 		</div>
+
+		<script>
+			function logoutFunction() {
+			  <?php session_destroy(); ?>
+			  
+			  	location.replace("http://localhost/AlertAcademy.html")
+			}
+		</script>
 		<!--This is where the home screen tab will be located, I just need to fixed the layout of it., Angelu-->
 		<!--In addition the tab actually works I just need the connection of the other code to be connected to the home tab, the Profile icon, the +Course tab, and the +Assignment tab, Angelu-->
 	</body>
