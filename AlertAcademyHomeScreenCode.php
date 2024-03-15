@@ -62,7 +62,7 @@
 
 <script> 
 let User = sessionStorage.getItem('Current_User');	<!-- tells page which user to get information for -->
-alert(User);
+<!--alert(User);-->
 </script>
 		
 	</head>
