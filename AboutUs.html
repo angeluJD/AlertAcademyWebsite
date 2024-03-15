@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			margin: 0;
+		}
+		
+		html {
+			box-sizing: border-box;
+		}
+		
+		*, *:before, *:after {
+			box-sizing: inherit;
+		}
+		
+		.column {
+				float: left;
+				width: 33.3%;
+				margin-bottom: 16px;
+				padding: 0 8px;
+			}	
+
+		.card {
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+				margin: 8px;
+		}
+
+		.about-section {
+					padding: 50px;
+					text-align: center;
+					background-color: #474e5d;
+					color: white;
+			}
+		
+		.container {
+				padding: 0 16px;
+		}
+
+		.container::after, .row::after {
+			content: "";
+			clear: both;
+			display: table;
+		}
+
+		.title {
+				color: #d6d6d6;
+		}
+
+		.button {
+				border: none;
+				outline: 0;
+				display: inline-block;
+				padding: 8px;
+				color: white;
+				background-color: #000;
+				text-align: center;
+				cursor: pointer;
+				width: 100%;
+			}
+
+		.button:hover {
+				background-color: #555;
+			}
+
+
+		@media screen and (max-width: 650px) {
+			.column {
+					width: 100%;
+					display: block;
+			}
+		}
+</style>
+</head>
+<body>
+
+<div class="about-section">
+	<h1>About Us</h1>
+	<p>Alert Academy is a website that was created by four students for a project at Biola University from a Software Engineering course.</p>
+	<p>Meet the four students that created Alert Academy</p>
+	<p>Our idea for Alert Academy actually came from Steven who went to community college before and when he was attending that college they would used a website called, "BlackBoard." Also, in Biola University we mostly used Canvas which is technically similar to BlackBoard. - Angelu</p>
+
+	<h2 style="text-align:center">Our Team</h2>
+	<div class="row">
+		<div class="column">
+			<div class="card">
+				<div class="container">
+					<h2>Gerson Gonzalez</h2>
+					<p class="title">Project Manager, Product Owner, & Designer & Developer (DB)</p>
+					<p><button class="button">Contact</button></p>
+				</div>
+			</div>
+		</div>
+
+	<div class="column">
+			<div class="card">
+				<div class="container">
+					<h2>Steven Gonzalez</h2>
+					<p class="title">Designer & Developer (DB)</p>
+					<p><button class="button">Contact</button></p>
+				</div>
+			</div>
+		</div>
+
+	<div class="column">
+			<div class="card">
+				<div class="container">
+					<h2>Angelu David</h2>
+					<p class="title">Designer & Developer (UI), Configuration Manager</p>
+					<p><button class="button">Contact</button></p>
+				</div>
+			</div>
+		</div>
+
+
+	<div class="column">
+			<div class="card">
+				<div class="container">
+					<h2>Larry Anderson</h2>
+					<p class="title">Tester & Designer & Developer (UI)</p>
+					<p><button class="button">Contact</button></p>
+				</div>
+			</div>
+		</div>
+</div>
+
+</body>
+</html>
