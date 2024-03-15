@@ -57,6 +57,13 @@
     			text-align: center;
     			float: none;
   			}
+
+		.rows {
+			margin: auto;
+			width: 100%;
+			padding: 10px;
+			text-align: center;
+		}
 	}
 </style>
 
