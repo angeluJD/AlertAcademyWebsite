@@ -64,69 +64,6 @@
 let User = sessionStorage.getItem('Current_User');	<!-- tells page which user to get information for -->
 alert(User);
 </script>
-
-<?php
-$user = 'root';
-$password = 'Access1998!';
-$database = 'AlertAcademy';
-$port = NULL;
-$Con = new mysqli('127.0.0.1', $user, $password, $database, $port);
-
-if ($Con->connect_error) {
-    die('Connect Error (' . $Con->connect_errno . ') '
-            . $Con->connect_error);
-}
-else{
-	$U = $_SESSION['thisuser'];	// tells PHP code which user is in use
-	
-	$q = "select ClsName, Color, ProfName, School from cls where cls.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U')";
-	
-	$Class_ID_List = $Con->query("$q");
-	
-	$n = $Class_ID_List->num_rows;
-	
-	if ($Class_ID_List->num_rows > 0) {
-		
-		//echo "<script type=\"text/JavaScript\">  var classes = [0] </script>";	// create JavaScript array?
-	  
-	  while($row = $Class_ID_List->fetch_assoc()) {			// loop for classes 
-		 $C = $row["ClsName"];
-		 $Col = $row["Color"];
-		 $Prof = $row["ProfName"];
-		 $Sch = $row["School"];
-		 
-		 echo "Class name: ". $C. " - Color #: ". $Col. " - Professor: ". $Prof. " - School: ". $Sch.  "<br>";
-		  
-		// can't do inner loop, must have 2 distinct loops for classes & Assignments
-	  }
-	}	// end of class data
-
-	echo "<br>";
-	
-	$q = "select Assign_Name, Due, Descrip, Color from Assign, Cls where Assign.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U') && (Assign.ClsID = Cls.ClsID) order by Assign.ClsID";
-	  
-	$Assign_List = $Con->query("$q");
-	
-	if ($Assign_List->num_rows > 0){
-		while($row = $Assign_List->fetch_assoc()){			// assignment loop
-			$N = $row["Assign_Name"];
-			$Due = $row["Due"];
-			$Desc = $row["Descrip"];
-			$Col = $row["Color"];
-			
-			echo "Assignment name: ". $N. " - Due Date: ". $Due. " - Description: ". $Desc. " - Color #: ". $Col. "<br>";
-		}
-		
-	}
-}
-
-$Con->close();
-?>
-
-<script type=“text/javascript”>
-   
-</script>
-
 		
 	</head>
 	<body>
@@ -140,6 +77,62 @@ $Con->close();
 			<a href="setting">Settings</a> <!--This is where the settings link is going to be connected considering that in the template that I made show what the setting will look like, Angelu-->
 			<a href="help">Help</a> <!-- This is the help button; however, I do not know if we should add the help button, Angelu -->
 			<button id="logout-button" onclick="logoutFunction()">Logout</button>
+		</div>
+
+		<div class="rows">
+			<?php
+				$user = 'root';
+				$password = 'Access1998!';
+				$database = 'AlertAcademy';
+				$port = NULL;
+				$Con = new mysqli('127.0.0.1', $user, $password, $database, $port);
+
+				if ($Con->connect_error) {
+					die('Connect Error (' . $Con->connect_errno . ') '
+							. $Con->connect_error);
+				}
+				else{
+					$U = $_SESSION['thisuser'];	// tells PHP code which user is in use
+					
+					$q = "select ClsName, Color, ProfName, School from cls where cls.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U')";
+					
+					$Class_List = $Con->query("$q");
+					
+					if ($Class_List->num_rows > 0) {
+					  
+					  while($row = $Class_List->fetch_assoc()) {			// loop for classes
+						 $C = $row["ClsName"];
+						 $Col = $row["Color"];
+						 $Prof = $row["ProfName"];
+						 $Sch = $row["School"];
+						 
+						 echo "Class name: ". $C. " - Color #: ". $Col. " - Professor: ". $Prof. " - School: ". $Sch. "<br>";
+						 
+						 echo "<script type=\"text/JavaScript\">  </script>";
+						  
+						// can't do inner loop, must have 2 distinct loops for classes & Assignments
+					  }
+					  echo "<br>";
+					}		// end of class data
+					
+					$q = "select Assign_Name, Due, Descrip, Color from Assign, Cls where Assign.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U') && (Assign.ClsID = Cls.ClsID) order by Assign.ClsID";
+					  
+					$Assign_List = $Con->query("$q");
+					
+					if ($Assign_List->num_rows > 0){
+						while($row = $Assign_List->fetch_assoc()){			// assignment loop
+							$N = $row["Assign_Name"];
+							$Due = $row["Due"];
+							$Desc = $row["Descrip"];
+							$Col = $row["Color"];
+							
+							echo "Assignment name: ". $N. " - Due Date: ". $Due. " - Description: ". $Desc. " - Color #: ". $Col. "<br>";
+						}
+					}
+				}
+
+				$Con->close();
+				?>
 		</div>
 
 		<script>
