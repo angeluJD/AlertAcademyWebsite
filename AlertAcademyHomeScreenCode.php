@@ -84,7 +84,7 @@
 </style>
 
 <script> 
-let User = sessionStorage.getItem('Current_User');	<!-- tells page which user to get information for -->
+let User = sessionStorage.getItem('Current_User');	<!-- tells HTML code which user to get information for -->
 <!-- alert(User) -->
 </script>
 		
