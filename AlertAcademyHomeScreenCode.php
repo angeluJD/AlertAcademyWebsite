@@ -19,6 +19,7 @@
   		overflow: auto;
 		}
 
+
 	.sidebar a {
   		display: block;
   		color: black;
@@ -57,19 +58,34 @@
     			text-align: center;
     			float: none;
   			}
-
-		.rows {
-			margin: auto;
-			width: 100%;
-			padding: 10px;
-			text-align: center;
-		}
 	}
+    .rows {
+        margin: auto;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
+    /* Styles for logout button */
+    #logout-button {
+        display: block;
+        background-color: red; /* Set background color to red */
+        color: white; /* Text color */
+        padding: 16px;
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+    }
+
+    #logout-button:hover {
+        background-color: darkred; /* Darker red on hover */
+    }
 </style>
 
 <script> 
 let User = sessionStorage.getItem('Current_User');	<!-- tells page which user to get information for -->
-<!--alert(User);-->
+<!-- alert(User) -->
 </script>
 		
 	</head>
@@ -79,7 +95,7 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells page which user to
 		<div class="sidebar">
 			<a class="active" href="home">Home</a> <!--Add in the command for the profile section, Angelu-->
 			<a href="profile">Profile</a> <!-- Try to add another code to return to the Home Screen even though it already in the Home Screen, Angelu-->
-			<a href="course">+Course</a> <!--This is the course link or coding would be located in, Angelu-->
+			<a href="Course.php">+Course</a> <!--This is the course link or coding would be located in, Angelu-->
 			<a href="assignment">+Assignment</a> <!-- This is where the adding assignment is going to be located so I am just waiting on the codes for these to work when it comes to the html codes, Angelu-->
 			<a href="setting">Settings</a> <!--This is where the settings link is going to be connected considering that in the template that I made show what the setting will look like, Angelu-->
 			<a href="help">Help</a> <!-- This is the help button; however, I do not know if we should add the help button, Angelu -->
@@ -88,11 +104,11 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells page which user to
 
 		<div class="rows">
 			<?php
-				$user = 'root';
-				$password = 'Access1998!';
+				$user = 'root1';
+				$password = 'August30';
 				$database = 'AlertAcademy';
-				$port = NULL;
-				$Con = new mysqli('127.0.0.1', $user, $password, $database, $port);
+				$port = 8889;
+				$Con = new mysqli('localhost', $user, $password, $database, $port);
 
 				if ($Con->connect_error) {
 					die('Connect Error (' . $Con->connect_errno . ') '
@@ -146,7 +162,7 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells page which user to
 			function logoutFunction() {
 			  <?php session_destroy(); ?>
 			  
-			  	location.replace("http://localhost/AlertAcademy.html")
+			  	location.replace("AlertAcademy.html")
 			}
 		</script>
 		<!--This is where the home screen tab will be located, I just need to fixed the layout of it., Angelu-->
