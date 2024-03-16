@@ -81,6 +81,10 @@
     #logout-button:hover {
         background-color: darkred; /* Darker red on hover */
     }
+	table.classes {
+			margin-left: auto; 
+			margin-right: auto;
+		}
 </style>
 
 <script> 
@@ -122,21 +126,24 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells HTML code which us
 					$Class_List = $Con->query("$q");
 					
 					if ($Class_List->num_rows > 0) {
+					 	echo "<table border='1' class = \"classes\">";
+						
+						echo "<tr><td>Class Name</td><td>Color #</td><td>Professor</td><td>School</td></tr>";
+						while($row = $Class_List->fetch_assoc()) {			// loop for classes
+							$C = $row["ClsName"];
+							$Col = $row["Color"];
+							$Prof = $row["ProfName"];
+							$Sch = $row["School"];
+						 
+							//echo "Class name: ". $C. " - Color #: ". $Col. " - Professor: ". $Prof. " - School: ". $Sch. "<br>";
+						 
+							echo "<tr><td>{$C}</td><td>{$Col}</td><td>{$Prof}</td><td>{$Sch}</td></tr>";
+						}
 					  
-					  while($row = $Class_List->fetch_assoc()) {			// loop for classes
-						 $C = $row["ClsName"];
-						 $Col = $row["Color"];
-						 $Prof = $row["ProfName"];
-						 $Sch = $row["School"];
-						 
-						 echo "Class name: ". $C. " - Color #: ". $Col. " - Professor: ". $Prof. " - School: ". $Sch. "<br>";
-						 
-						 echo "<script type=\"text/JavaScript\">  </script>";
-						  
-						// can't do inner loop, must have 2 distinct loops for classes & Assignments
-					  }
-					  echo "<br>";
+						echo "</table>";
 					}		// end of class data
+
+					echo "<br>";
 					
 					$q = "select Assign_Name, Due, Descrip, Color from Assign, Cls where Assign.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U') && (Assign.ClsID = Cls.ClsID) order by Assign.ClsID";
 					  
