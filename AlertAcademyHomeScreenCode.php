@@ -84,7 +84,12 @@
 	table.classes {
 			margin-left: auto; 
 			margin-right: auto;
-		}
+	}
+
+	table.assignments {
+			margin-left: auto; 
+			margin-right: auto;
+	}
 </style>
 
 <script> 
@@ -150,13 +155,18 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells HTML code which us
 					$Assign_List = $Con->query("$q");
 					
 					if ($Assign_List->num_rows > 0){
+						echo "<table border='1' class = \"assignments\">";
+						
+						echo "<tr><td>Assignment Name</td><td>Due Date</td><td>Description</td><td>Color #</td></tr>";
 						while($row = $Assign_List->fetch_assoc()){			// assignment loop
 							$N = $row["Assign_Name"];
 							$Due = $row["Due"];
 							$Desc = $row["Descrip"];
 							$Col = $row["Color"];
 							
-							echo "Assignment name: ". $N. " - Due Date: ". $Due. " - Description: ". $Desc. " - Color #: ". $Col. "<br>";
+							//echo "Assignment name: ". $N. " - Due Date: ". $Due. " - Description: ". $Desc. " - Color #: ". $Col. "<br>";
+							
+							echo "<tr><td>{$N}</td><td>{$Due}</td><td>{$Desc}</td><td>{$Col}</td></tr>";
 						}
 					}
 				}
