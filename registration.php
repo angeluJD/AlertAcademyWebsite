@@ -15,8 +15,6 @@ $port = 8889; //Default must be NULL to use default port
 // Create connection
 $conn = new mysqli('localhost', $user, $password, $database, $port);
 
-session_start();
-
 if ($conn->connect_error) {
     die('Connect Error (' . $conn->connect_errno . ') '
         . $conn->connect_error);
@@ -37,6 +35,8 @@ else {
 
     if ($conn->query($sql) === TRUE) {
         // Registration successful
+
+        session_start();
 
         echo "<script type=\"text/JavaScript\">  sessionStorage.setItem('Current_User', '$username') </script>"; // passes info to HTML code in new page
 
