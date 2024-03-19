@@ -157,7 +157,7 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells HTML code which us
 					if ($Assign_List->num_rows > 0){
 						echo "<table border='1' class = \"assignments\">";
 						
-						echo "<tr><td>Assignment Name</td><td>Due Date</td><td>Description</td><td>Color #</td></tr>";
+						echo "<tr><td>Assignment Name</td><td>Due Date</td><td>Color #</td></tr>";
 						while($row = $Assign_List->fetch_assoc()){			// assignment loop
 							$N = $row["Assign_Name"];
 							$Due = $row["Due"];
