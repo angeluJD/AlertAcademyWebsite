@@ -3,69 +3,71 @@
 	<head>
 		<title> Alert Academy </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<style>
-	body {
-  		margin: 0;
-  		font-family: "Lato", sans-serif;
+		body {
+			margin: 0;
+			font-family: "Lato", sans-serif;
 		}
 
-	.sidebar {
-  		margin: 0;
-  		padding: 0;
- 		width: 200px;
-  		background-color: #f1f1f1;
-  		position: fixed;
-  		height: 100%;
-  		overflow: auto;
+		.sidebar {
+			margin: 0;
+			padding: 0;
+			width: 200px;
+			background-color: #f1f1f1;
+			position: fixed;
+			height: 100%;
+			overflow: auto;
 		}
 
-
-	.sidebar a {
-  		display: block;
-  		color: black;
-  		padding: 16px;
-  		text-decoration: none;
+		.sidebar a {
+			display: block;
+			color: black;
+			padding: 16px;
+			text-decoration: none;
 		}
- 
-	.sidebar a.active {
-  		background-color: #04AA6D;
-  		color: white;
-		}
-
-	.sidebar a:hover:not(.active) {
-  		background-color: #555;
-  		color: white;
+	 
+		.sidebar a.active {
+			background-color: #04AA6D;
+			color: white;
 		}
 
-	div.content {
-  		margin-left: 200px;
-  		padding: 1px 16px;
-  		height: 1000px;
+		.sidebar a:hover:not(.active) {
+			background-color: #555;
+			color: white;
 		}
 
-	@media screen and (max-width: 700px) {
-  		.sidebar {
-    			width: 100%;
-    			height: auto;
-    			position: relative;
-  		}
-  	.sidebar a {float: left;}
-  	div.content {margin-left: 0;}
-	}
+		div.content {
+			margin-left: 200px;
+			padding: 1px 16px;
+			height: 1000px;
+		}
 
-	@media screen and (max-width: 400px) {
-  		.sidebar a {
-    			text-align: center;
-    			float: none;
-  			}
-	}
-    .rows {
-        margin: auto;
-        width: 100%;
-        padding: 10px;
-        text-align: center;
-    }
-    /* Styles for logout button */
+		@media screen and (max-width: 700px) {
+			.sidebar {
+					width: 100%;
+					height: auto;
+					position: relative;
+			}
+			.sidebar a {float: left;}
+			div.content {margin-left: 0;}
+		}
+
+		@media screen and (max-width: 400px) {
+			.sidebar a {
+					text-align: center;
+					float: none;
+			}
+		}
+		
+		.rows {
+			margin: auto;
+			width: 100%;
+			padding: 10px;
+			text-align: center;
+		}
+		
+		/* Styles for logout button */
     #logout-button {
         display: block;
         background-color: red; /* Set background color to red */
@@ -81,48 +83,44 @@
     #logout-button:hover {
         background-color: darkred; /* Darker red on hover */
     }
-	table.classes {
-			margin-left: auto; 
-			margin-right: auto;
-	}
-
-	table.assignments {
-			margin-left: auto; 
-			margin-right: auto;
-	}
-</style>
-
-<script> 
-let User = sessionStorage.getItem('Current_User');	<!-- tells HTML code which user to get information for -->
-<!-- alert(User) -->
-</script>
 		
+		table.classes {
+			margin-left: auto; 
+			margin-right: auto;
+		}
+		
+		table.assignments {
+			margin-left: auto; 
+			margin-right: auto;
+		}
+	</style>
+
+<script>
+	let User1 = sessionStorage.getItem('Current_User');	<!-- tells HTML code which user to get information for -->
+	<!--alert(User1);-->
+</script>
+
 	</head>
+	
 	<body>
-	<h1 align="center">Alert Academy</h1>
+		<h1 align="center">Alert Academy</h1>
+		
 		<!-- Navigation -->
 		<div class="sidebar">
-			<a class="active" href="home">Home</a> <!--Add in the command for the profile section, Angelu-->
-			<a href="profile">Profile</a> <!-- Try to add another code to return to the Home Screen even though it already in the Home Screen, Angelu-->
+			<a class="active" href="home">Home</a> <!-- Try to add another code to return to the Home Screen even though it already in the Home Screen, Angelu-->
+			<a href="profile">Profile</a> <!--Add in the command for the profile section, Angelu-->
 			<a href="Course.php">+Course</a> <!--This is the course link or coding would be located in, Angelu-->
 			<a href="assignment">+Assignment</a> <!-- This is where the adding assignment is going to be located so I am just waiting on the codes for these to work when it comes to the html codes, Angelu-->
 			<a href="setting">Settings</a> <!--This is where the settings link is going to be connected considering that in the template that I made show what the setting will look like, Angelu-->
 			<a href="help">Help</a> <!-- This is the help button; however, I do not know if we should add the help button, Angelu -->
 			<button id="logout-button" onclick="logoutFunction()">Logout</button>
 		</div>
-
+		
 		<div class="rows">
 			<?php
-				$user = 'root1';
-				$password = 'August30';
-				$database = 'AlertAcademy';
-				$port = 8889;
-				$Con = new mysqli('localhost', $user, $password, $database, $port);
+				$Con = new mysqli('127.0.0.1', 'root', 'Access1998!', 'AlertAcademy', NULL);
 
-				if ($Con->connect_error) {
-					die('Connect Error (' . $Con->connect_errno . ') '
-							. $Con->connect_error);
-				}
+				if ($Con->connect_error) {die('Connect Error (' . $Con->connect_errno . ') '. $Con->connect_error);}
 				else{
 					$U = $_SESSION['thisuser'];	// tells PHP code which user is in use
 					
@@ -160,10 +158,6 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells HTML code which us
 						
 						echo "<tr><td>Assignment Name</td><td>Due Date</td><td>Color #</td></tr>";
 						while($row = $Assign_List->fetch_assoc()){			// assignment loop
-							echo "<table border='1' class = \"assignments\">";
-						
-						echo "<tr><td>Assignment Name</td><td>Due Date</td><td>Color #</td></tr>";
-						while($row = $Assign_List->fetch_assoc()){			// assignment loop
 							$N = $row["Assign_Name"];
 							$Due = $row["Due"];
 							$Col = $row["Color"];
@@ -179,12 +173,16 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells HTML code which us
 				$Con->close();
 				?>
 		</div>
-
+		
 		<script>
 			function logoutFunction() {
 			  <?php session_destroy(); ?>
 			  
-			  	location.replace("AlertAcademy.html")
+			  location.replace("http://localhost/AlertAcademy.html")
+			}
+			
+			function DeleteClass(ClassID) {
+			  
 			}
 		</script>
 		<!--This is where the home screen tab will be located, I just need to fixed the layout of it., Angelu-->
