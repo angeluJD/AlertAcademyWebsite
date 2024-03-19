@@ -126,12 +126,12 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells HTML code which us
 				else{
 					$U = $_SESSION['thisuser'];	// tells PHP code which user is in use
 					
-					$q = "select ClsName, Color, ProfName, School from cls where cls.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U')";
+					$q = "select ClsID, ClsName, Color, ProfName, School from cls where cls.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U')";
 					
 					$Class_List = $Con->query("$q");
 					
 					if ($Class_List->num_rows > 0) {
-					 	echo "<table border='1' class = \"classes\">";
+						echo "<table border='1' class = \"classes\">";
 						
 						echo "<tr><td>Class Name</td><td>Color #</td><td>Professor</td><td>School</td></tr>";
 						while($row = $Class_List->fetch_assoc()) {			// loop for classes
@@ -147,10 +147,10 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells HTML code which us
 					  
 						echo "</table>";
 					}		// end of class data
-
+					
 					echo "<br>";
 					
-					$q = "select Assign_Name, Due, Descrip, Color from Assign, Cls where Assign.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U') && (Assign.ClsID = Cls.ClsID) order by Assign.ClsID";
+					$q = "select Assign_ID, Assign_Name, Due, Color, Assign.Person_ID, Assign.ClsID from Assign, Cls where Assign.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U') && (Assign.ClsID = Cls.ClsID) order by Assign.Due";
 					  
 					$Assign_List = $Con->query("$q");
 					
@@ -161,12 +161,11 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells HTML code which us
 						while($row = $Assign_List->fetch_assoc()){			// assignment loop
 							$N = $row["Assign_Name"];
 							$Due = $row["Due"];
-							$Desc = $row["Descrip"];
 							$Col = $row["Color"];
 							
-							//echo "Assignment name: ". $N. " - Due Date: ". $Due. " - Description: ". $Desc. " - Color #: ". $Col. "<br>";
+							//echo "Assignment name: ". $N. " - Due Date: ". $Due. " - Color #: ". $Col. "<br>";
 							
-							echo "<tr><td>{$N}</td><td>{$Due}</td><td>{$Desc}</td><td>{$Col}</td></tr>";
+							echo "<tr><td>{$N}</td><td>{$Due}</td><td>{$Col}</td></tr>";
 						}
 					}
 				}
