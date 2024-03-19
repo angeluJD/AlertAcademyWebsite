@@ -139,10 +139,11 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells HTML code which us
 							$Col = $row["Color"];
 							$Prof = $row["ProfName"];
 							$Sch = $row["School"];
+							$ID = $row["ClsID"];
 						 
 							//echo "Class name: ". $C. " - Color #: ". $Col. " - Professor: ". $Prof. " - School: ". $Sch. "<br>";
 						 
-							echo "<tr><td>{$C}</td><td>{$Col}</td><td>{$Prof}</td><td>{$Sch}</td></tr>";
+							echo "<tr><td>{$C}</td><td>{$Col}</td><td>{$Prof}</td><td>{$Sch}</td><td><button id = '$ID' class=\"editbtn\" value = \"$ID\">edit</button></td><td><button id = '$ID' class=\"delbtn\" value = \"$ID\">Delete</button></td></tr>";
 						}
 					  
 						echo "</table>";
@@ -159,13 +160,18 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells HTML code which us
 						
 						echo "<tr><td>Assignment Name</td><td>Due Date</td><td>Color #</td></tr>";
 						while($row = $Assign_List->fetch_assoc()){			// assignment loop
+							echo "<table border='1' class = \"assignments\">";
+						
+						echo "<tr><td>Assignment Name</td><td>Due Date</td><td>Color #</td></tr>";
+						while($row = $Assign_List->fetch_assoc()){			// assignment loop
 							$N = $row["Assign_Name"];
 							$Due = $row["Due"];
 							$Col = $row["Color"];
+							$ID = $row["Assign_ID"];
 							
 							//echo "Assignment name: ". $N. " - Due Date: ". $Due. " - Color #: ". $Col. "<br>";
 							
-							echo "<tr><td>{$N}</td><td>{$Due}</td><td>{$Col}</td></tr>";
+							echo "<tr><td>{$N}</td><td>{$Due}</td><td>{$Col}</td><td><button id = '$ID' class=\"editbtn\" value = \"$ID\">edit</button></td><td><button id = '$ID' class=\"delbtn\" value = \"$ID\">Delete</button></td></tr>";
 						}
 					}
 				}
