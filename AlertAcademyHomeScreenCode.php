@@ -141,7 +141,7 @@
 						 
 							//echo "Class name: ". $C. " - Color #: ". $Col. " - Professor: ". $Prof. " - School: ". $Sch. "<br>";
 						 
-							echo "<tr><td>{$C}</td><td>{$Col}</td><td>{$Prof}</td><td>{$Sch}</td><td><button id = '$ID' class=\"editbtn\" value = \"$ID\">edit</button></td><td><button id = '$ID' class=\"delbtn\" value = \"$ID\">Delete</button></td></tr>";
+							echo "<tr><td>{$C}</td><td>{$Col}</td><td>{$Prof}</td><td>{$Sch}</td><td><button id = '$ID' class=\"editbtn\" value = \"$ID\">edit</button></td><td><form action='http://localhost/DeleteClass.php' method='post'> <input type='submit' name='delete' value='Delete'> <input type='hidden' name='ClassDelete' value='$ID'> <input type='hidden' name='ClassDeleteUser' value='$U'> </form></td></tr>";
 						}
 					  
 						echo "</table>";
@@ -179,10 +179,6 @@
 			  <?php session_destroy(); ?>
 			  
 			  location.replace("http://localhost/AlertAcademy.html")
-			}
-			
-			function DeleteClass(ClassID) {
-			  
 			}
 		</script>
 		<!--This is where the home screen tab will be located, I just need to fixed the layout of it., Angelu-->
