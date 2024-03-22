@@ -165,7 +165,7 @@
 							
 							//echo "Assignment name: ". $N. " - Due Date: ". $Due. " - Color #: ". $Col. "<br>";
 							
-							echo "<tr><td>{$N}</td><td>{$Due}</td><td>{$Col}</td><td><button id = '$ID' class=\"editbtn\" value = \"$ID\">edit</button></td><td><button id = '$ID' class=\"delbtn\" value = \"$ID\">Delete</button></td></tr>";
+							echo "<tr><td>{$N}</td><td>{$Due}</td><td>{$Col}</td><td><form action='http://localhost/DeleteAssignment.php' method='post'> <input type='submit' name='delete' value='Delete'> <input type='hidden' name='AssignDelete' value='$ID'> <input type='hidden' name='AssignDeleteUser' value='$U'> </form></td></tr>";
 						}
 					}
 				}
