@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><title>Landing-Sign.php</title></head>
+<head><title>Delete-Class.php</title></head>
 <body>
 
 <?php
