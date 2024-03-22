@@ -60,8 +60,8 @@ CREATE PROCEDURE Clear_Cls
 READS SQL DATA
 BEGIN 
  
-DELETE FROM Assign WHERE (Assign.Person_ID = CID);
-DELETE FROM Cls WHERE (Cls.Person_ID = CID);
+DELETE FROM Assign WHERE (Assign.ClsID = CID);
+DELETE FROM Cls WHERE (Cls.ClsID = CID);
 
 END //
 
