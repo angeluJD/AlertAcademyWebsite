@@ -29,7 +29,7 @@ else{
 	
 	include('AlertAcademyHomeScreenCode.php');
 	
-}		// if match, go to page, else, send message to user
+}
 
 $mysqli->close();
 ?>
