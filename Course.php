@@ -108,7 +108,7 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells page which user to
 							. $Con->connect_error);
 				}
 				else{
-					$U = $_SESSION['thisuser'];	// tells PHP code which user is in use
+					// workin on this -Steven
 
 				}
 
