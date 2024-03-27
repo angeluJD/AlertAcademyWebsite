@@ -125,5 +125,45 @@ p {
   font-family: "Montserrat", sans-serif;
   font-size: 0.7em;
   padding: 7px;
-  
+  color: black;
+}
+
+.btn {
+  float: right;
+  font-family: "Roboto", sans-serif;
+  text-tranform: uppercase;
+  font-size: 15px;
+  border: none;
+  color: darkorange;
+}
+
+.btn: hover {
+  text-decoration: underline;
+  font-weight: 900;
+}
+
+footer {
+  position: absolute;
+  width: 20%;
+  bottom: 0;
+  right: -20px;
+  text-align: right;
+  font-size: 0.10em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: "Roboto", sans-serif;
+}
+
+footer p {
+  border: none;
+  padding: 0;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover{
+  color: darkgray;
 }
