@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+
 body{
   background: linear-gradient(to right, yellow, orange, red);
   overflow: hidden;
@@ -165,3 +168,5 @@ footer a {
 footer a:hover{
   color: darkgray;
 }
+
+</html>
