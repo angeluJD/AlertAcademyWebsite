@@ -2,7 +2,6 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Account Setting</title>
 		<!-- CSS -->
@@ -10,51 +9,32 @@
 	</head>
 	<body>
 		<div class="container">
-			<div id="logo">
-				<h1 class="logo">Alert Academy</h1>
-				<div class="CTA">
-					<h1>Donate</h1>
-				</div>
-				<div class="leftbox">
-					<nav>
-						<a href="#" class="active">
-							<i class="fa fa-user"></i>
-						</a>
-						<a href="#" class="active">
-							<i class="fa fa-settings"></i>
-						</a>
-						<a href="#" class="active">
-							<i class="fa fa-task"></i>
-						</a>
-					</nav>
-				</div>
-				<div>
-					<div class="rightbox">
-						<h1>Personal Info</h1>
-						<h2>Full name</h2>
-						<input type="text" class="input" value="First Last Name">
-						<button class="btn">Update</button>
-						<h2>Gender</h2>
-						<p>
-							<form class="gender">
-								<input type="radio" id="1">
-								<label for="1">Male</label> <br>
-								<input type="radio" id="2"> 
-								<label for="2">Female</label> <br>
-								<input type="radio" id="3">
-								<label for="3">Other</label> <br>
-							</form>
-							<button class="btn">Update</button>
-						</p>
-						<h2>Email</h2>
-						<input type="text" class="input" value="example@example.edu">
-						<button class="btn">Update</button>
-						<h2>Password</h2>
-						<input type="password" class="input" value="hello1234">
-						<button class="btn">Update</button>
-					</div>
+			<div class="leftbox">
+				<nav>
+					<a onclick="tabs(0)" class="tab active">
+						<i class="fa fa-user"></i>
+					</a>
+					<a onclick="tabs(1)" class="tab active">
+						<i class="fa fa-cog"></i>
+					</a>
+				</nav>
+			</div>
+			<div class="rightbox">
+				<div class="profile tabShow">
+					<h1>Personal Info</h1>
+					<h2>Full Name</h2>
+					<input type="text"
+						class="input" value="First Name Last Name">
+					<button type="save" value="Save">Save</button>
+					<h2>Birthday</h2>
+					<label for="Date of Birth">
+						<input type="date" name="date">
+						<button type="save" value="Save">Save</button>
+					</label>
+					
 				</div>
 			</div>
+
 		</div>
 	</body>
 </html>
