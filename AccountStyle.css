@@ -1,4 +1,14 @@
 body{
-  background: linear-gradient(to right, #faf79d, #ffa500, #fa788c);
- 
+ /* background: linear-gradient(to right, #faf79d, #ffa500, #fa788c);
+ */
+  overflow-x: hidden;
+}
+
+.container {
+  background: #fff;
+  width: 540px;
+  height: 450px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 10%;
 }
