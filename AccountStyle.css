@@ -1,6 +1,6 @@
 body{
- /* background: linear-gradient(to right, #faf79d, #ffa500, #fa788c);
- */
+ background: linear-gradient(to right, red, orange, yellow);
+ *
   overflow-x: hidden;
 }
 
@@ -11,4 +11,26 @@ body{
   margin: 0 auto;
   position: relative;
   margin-top: 10%;
+ box-shadow: 2px 5px 20px rgba(119, 119, 119, .5);
+}
+
+.leftbox{
+ float: left;
+ top: -5%;
+ left: 5%;
+ position: absolute;
+ width: 15%;
+ height: 110%;
+ background: orange;
+ box-shadow: 3px 3px 10px rgba(119, 119, 119, .5);
+ border: .1em solid #fff;
+}
+
+nav a {
+ list-style: none;
+ padding: 35px;
+ color: #fff;
+ fotn-size: 1.1em;
+ display: block;
+ transition: all .3s ease-in-out;
 }
