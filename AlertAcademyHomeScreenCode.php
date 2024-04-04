@@ -141,7 +141,7 @@
 						 
 							//echo "Class name: ". $C. " - Color #: ". $Col. " - Professor: ". $Prof. " - School: ". $Sch. "<br>";
 						 
-							echo "<tr><td>{$C}</td><td>{$Col}</td><td>{$Prof}</td><td>{$Sch}</td><td><form action='http://localhost/ClassEdit.php' method='post'> <input type='submit' name='edit' value='Edit'> <input type='hidden' name='ClassEdit' value='$ID'> </form></td><td><form action='http://localhost/DeleteClass.php' method='post'> <input type='submit' name='delete' value='Delete'> <input type='hidden' name='ClassDelete' value='$ID'> <input type='hidden' name='ClassDeleteUser' value='$U'> </form></td></tr>";
+							echo "<tr><td>{$C}</td><td>{$Col}</td><td>{$Prof}</td><td>{$Sch}</td><td><form action='http://localhost/ClassEdit.php' method='post'> <input type='submit' name='edit' value='Edit'> <input type='hidden' name='ClassEdit' id='ClassEdit' value='$ID'></form></td><td><form action='http://localhost/DeleteClass.php' method='post'> <input type='submit' name='delete' value='Delete'> <input type='hidden' name='ClassDelete' value='$ID'> <input type='hidden' name='ClassDeleteUser' value='$U'> </form></td></tr>";
 						}
 					  
 						echo "</table>";
@@ -165,7 +165,7 @@
 							
 							//echo "Assignment name: ". $N. " - Due Date: ". $Due. " - Color #: ". $Col. "<br>";
 							
-							echo "<tr><td>{$N}</td><td>{$Due}</td><td>{$Col}</td><td><form action='http://localhost/DeleteAssignment.php' method='post'> <input type='submit' name='delete' value='Delete'> <input type='hidden' name='AssignDelete' value='$ID'> <input type='hidden' name='AssignDeleteUser' value='$U'> </form></td></tr>";
+							echo "<tr><td>{$N}</td><td>{$Due}</td><td>{$Col}</td><td><form action='http://localhost/EditAssignment.php' method='post'> <input type='submit' name='edit' value='Edit'> <input type='hidden' name='AssignEdit' id='AssignEditEdit' value='$ID'></form></td><td><form action='http://localhost/DeleteAssignment.php' method='post'> <input type='submit' name='delete' value='Delete'> <input type='hidden' name='AssignDelete' value='$ID'> <input type='hidden' name='AssignDeleteUser' value='$U'> </form></td></tr>";
 						}
 					}
 				}
