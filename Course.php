@@ -97,12 +97,6 @@
 	<h1 align="center">Alert Academy</h1>
 		<!-- Navigation -->
 		<div class="sidebar">
-			<a href="AlertAcademyHomeScreenCode.php">Home</a> <!--Add in the command for the profile section, Angelu-->
-			<a href="profile">Profile</a> <!-- Try to add another code to return to the Home Screen even though it already in the Home Screen, Angelu-->
-			<a class="active" href="course">+Course</a> <!--This is the course link or coding would be located in, Angelu-->
-			<a href="assignment">+Assignment</a> <!-- This is where the adding assignment is going to be located so I am just waiting on the codes for these to work when it comes to the html codes, Angelu-->
-			<a href="setting">Settings</a> <!--This is where the settings link is going to be connected considering that in the template that I made show what the setting will look like, Angelu-->
-			<a href="help">Help</a> <!-- This is the help button; however, I do not know if we should add the help button, Angelu -->
 			<button id="logout-button" onclick="logoutFunction()">Logout</button>
 		</div>
 
@@ -130,6 +124,11 @@
 					echo "<label for='school'>School:</label> <input type='text' id='school' name='school'><br>";
 					echo "<input type='hidden' name='P' value='$Pers'>";
 					echo "<button type='submit' class='btn'>Save</button>";
+					echo "</form>";
+
+					echo "<form id='cancel' action='http://localhost/Cancel.php' method='post'>";
+					echo "<input type='hidden' name='Person' value='$Pers'>";
+					echo "<br><button type='submit' class='btn'>Cancel</button>";
 					echo "</form>";
 					
 					echo "</div>";
