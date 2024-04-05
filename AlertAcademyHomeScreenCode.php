@@ -122,7 +122,6 @@
 						echo "<form action='http://localhost/Course.php' method='post'> <input type='hidden' name='User' id='User' value='$U'> <input type='submit' name='+course' value='+Course'> </form>";
 						echo "<form action='http://localhost/Assignment.php' method='post'> <input type='hidden' name='User' id='User' value='$U'> <input type='submit' name='+Assignment' value='+Assignment'> </form>";
 						echo "<a href='setting'>Settings</a>";
-						echo "<a href='help'>Help</a>";
 						echo "<button id='logout-button' onclick='logoutFunction()'>Logout</button>";
 					echo "</div>";
 					
