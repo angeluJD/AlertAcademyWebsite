@@ -43,7 +43,7 @@
 		}
 
 		.title {
-				color: #d6d6d6;
+				color: #de5405;
 		}
 
 		.button {
@@ -52,14 +52,14 @@
 				display: inline-block;
 				padding: 8px;
 				color: white;
-				background-color: #000;
+				background-color: #f65d06;
 				text-align: center;
 				cursor: pointer;
 				width: 100%;
 			}
 
 		.button:hover {
-				background-color: #555;
+				background-color: #d65105;
 			}
 
 
