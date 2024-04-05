@@ -105,16 +105,7 @@
 	<body>
 		<h1 align="center">Alert Academy</h1>
 		
-		<!-- Navigation -->
-		<div class="sidebar">
-			<a class="active" href="home">Home</a> <!-- Try to add another code to return to the Home Screen even though it already in the Home Screen, Angelu-->
-			<a href="profile">Profile</a> <!--Add in the command for the profile section, Angelu-->
-			<a href="Course.php">+Course</a> <!--This is the course link or coding would be located in, Angelu-->
-			<a href="assignment">+Assignment</a> <!-- This is where the adding assignment is going to be located so I am just waiting on the codes for these to work when it comes to the html codes, Angelu-->
-			<a href="setting">Settings</a> <!--This is where the settings link is going to be connected considering that in the template that I made show what the setting will look like, Angelu-->
-			<a href="help">Help</a> <!-- This is the help button; however, I do not know if we should add the help button, Angelu -->
-			<button id="logout-button" onclick="logoutFunction()">Logout</button>
-		</div>
+		<!-- Navigation was here -->
 		
 		<div class="rows">
 			<?php
@@ -123,6 +114,17 @@
 				if ($Con->connect_error) {die('Connect Error (' . $Con->connect_errno . ') '. $Con->connect_error);}
 				else{
 					$U = $_SESSION['thisuser'];	// tells PHP code which user is in use
+
+					// echo navigation here
+					echo "<div class='sidebar'>";
+						echo "<a class='active' href='home'>Home</a>";
+						echo "<a href='profile'>Profile</a>";
+						echo "<form action='http://localhost/Course.php' method='post'> <input type='hidden' name='User' id='User' value='$U'> <input type='submit' name='+course' value='+Course'> </form>";
+						echo "<a href='assignment'>+Assignment</a>";
+						echo "<a href='setting'>Settings</a>";
+						echo "<a href='help'>Help</a>";
+						echo "<button id='logout-button' onclick='logoutFunction()'>Logout</button>";
+					echo "</div>";
 					
 					$q = "select ClsID, ClsName, Color, ProfName, School from cls where cls.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U')";
 					
