@@ -38,6 +38,7 @@
 
 		.container::after, .row::after {
 			content: "";
+			color:white;
 			clear: both;
 			display: table;
 		}
