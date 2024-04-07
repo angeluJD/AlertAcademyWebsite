@@ -22,7 +22,7 @@ else{
 	$usr = $_POST["usr"];
 	$pass = $_POST["pass"];
 	
-	$q = "SELECT UsrNm, Password FROM Person WHERE UsrNm = '$usr' && Password = '$pass'";
+	$q = "SELECT Password, UsrNm FROM Person WHERE Password = '$pass' && UsrNm = '$usr'";
 	
 	//print("$q");
 	
