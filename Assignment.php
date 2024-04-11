@@ -115,8 +115,15 @@
 				else{
 					$Pers = $_POST["User"];
 					
-					$q = "select ClsID from Cls where (Person_ID = (select Person.Person_ID from Person where UsrNm = '$Pers') && ClsName = 'N/A')";
-					$C = $Con->query("$q");
+					$q = "select ClsID from Cls where (Person_ID = (select Person.Person_ID from Person where UsrNm = ?) && ClsName = 'N/A')";
+					
+					$query = $Con->prepare($q);
+					$query->bind_param('s', $Pers);
+					
+					$query->execute();
+					
+					$C = $query->get_result();
+					//$C = $Con->query("$q");
 					
 					if ($C->num_rows == 1){					// check if "N/A" class is still there
 						while($row = $C->fetch_assoc()){
@@ -145,9 +152,15 @@
 					
 					echo "</div>";
 					
-					$q = "SELECT ClsID, ClsName FROM Cls where Cls.Person_ID = (select Person.Person_ID from Person where UsrNm = '$Pers')";
+					$q = "SELECT ClsID, ClsName FROM Cls where Cls.Person_ID = (select Person.Person_ID from Person where UsrNm = ?)";
 					
-					$Query = $Con->query("$q");
+					$query = $Con->prepare($q);
+					$query->bind_param('s', $Pers);
+					
+					$query->execute();
+					
+					$Query = $query->get_result();
+					//$Query = $Con->query("$q");
 					$count = $Query->num_rows;
 					
 					if ($count > 0){					// populate class list
