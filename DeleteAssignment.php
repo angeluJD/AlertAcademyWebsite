@@ -23,9 +23,14 @@ else{
 
 	$A = $_POST["AssignDelete"];
 	
-	$q = "Delete from Assign where Assign_ID = '$A'";
+	$q = "Delete from Assign where Assign_ID = ?";
 	
-	$mysqli->query("$q");
+	$query = $mysqli->prepare($q);
+	$query->bind_param('i', $A);
+	
+	$result = $query->execute();
+	
+	//$mysqli->query("$q");
 	
 	include('AlertAcademyHomeScreenCode.php');
 	
