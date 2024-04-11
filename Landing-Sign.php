@@ -22,14 +22,15 @@ else{
 	$usr = $_POST["usr"];
 	$pass = $_POST["pass"];
 	
-	$q = "SELECT Password, UsrNm FROM Person WHERE Password = '$pass' && UsrNm = '$usr'";
+	$q = "SELECT Password, UsrNm FROM Person WHERE (Password = ? && UsrNm = ?)";
 	
-	//print("$q");
+	$query = $mysqli->prepare($q);
+	$query->bind_Param("ss", $pass, $usr);
+	$query->execute();
 	
-	$query = $mysqli->query("$q");
-	$count = $query->num_rows;
-	
-	//print ("$count");
+	$result = $query->get_result();
+
+	$count = $result->num_rows;
 	
 	if ($count == 1) {
 		session_start();
