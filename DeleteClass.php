@@ -23,9 +23,14 @@ else{
 
 	$Class = $_POST["ClassDelete"];
 	
-	$q = "CALL Clear_Cls('$Class')";
+	$q = "CALL Clear_Cls(?)";
 	
-	$mysqli->query("$q");
+	$query = $mysqli->prepare($q);
+	$query->bind_param('i', $Class);
+	
+	$result = $query->execute();
+	
+	//$mysqli->query("$q");
 	
 	include('AlertAcademyHomeScreenCode.php');
 	
