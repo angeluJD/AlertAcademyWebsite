@@ -135,7 +135,7 @@
 				}
 
 				$Con->close();
-				?>
+			?>
 		</div>
 
 		<script>
