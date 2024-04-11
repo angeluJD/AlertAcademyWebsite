@@ -125,9 +125,16 @@
 						echo "<button id='logout-button' onclick='logoutFunction()'>Logout</button>";
 					echo "</div>";
 					
-					$q = "select ClsID, ClsName, Color, ProfName, School from cls where cls.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U')";
+					$q = "select ClsID, ClsName, Color, ProfName, School from cls where cls.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = ?)";
 					
-					$Class_List = $Con->query("$q");
+					$query = $Con->prepare($q);
+					$query->bind_param('s', $U);
+					
+					$query->execute();
+					
+					$Class_List = $query->get_result();
+					
+					//$Class_List = $Con->query("$q");
 					
 					if ($Class_List->num_rows > 0) {
 						echo "<table border='1' class = \"classes\">";
@@ -150,9 +157,16 @@
 					
 					echo "<br>";
 					
-					$q = "select Assign_ID, Assign_Name, Due, Color, Assign.Person_ID, Assign.ClsID from Assign, Cls where Assign.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = '$U') && (Assign.ClsID = Cls.ClsID) order by Assign.Due";
+					$q = "select Assign_ID, Assign_Name, Due, Color, Assign.Person_ID, Assign.ClsID from Assign, Cls where Assign.Person_ID = (select Person.Person_ID from Person where Person.UsrNm = ?) && (Assign.ClsID = Cls.ClsID) order by Assign.Due";
+					
+					$query = $Con->prepare($q);
+					$query->bind_param('s', $U);
+					
+					$query->execute();
+					
+					$Assign_List = $query->get_result();
 					  
-					$Assign_List = $Con->query("$q");
+					//$Assign_List = $Con->query("$q");
 					
 					if ($Assign_List->num_rows > 0){
 						echo "<table border='1' class = \"assignments\">";
