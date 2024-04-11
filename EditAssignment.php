@@ -120,9 +120,15 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells page which user to
 				else{
 					$Assignment = $_POST["AssignEdit"];
 					
-					$q = "SELECT* FROM Assign where Assign_ID = '$Assignment'";
+					$q = "SELECT* FROM Assign where Assign_ID = ?";
 					
-					$Query = $Con->query("$q");
+					$query = $Con->prepare($q);
+					$query->bind_param('i', $Assignment);
+					
+					$query->execute();
+					
+					$Query = $query->get_result();
+					//$Query = $Con->query("$q");
 					$count = $Query->num_rows;
 					
 					if ($count == 1){
@@ -146,8 +152,15 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells page which user to
 							echo "<button type='submit' class='btn'>Save</button>";
 							echo "</form>";
 
-							$q = "select UsrNm from Person where Person.Person_ID = '$Person'";
-							$P = $Con->query("$q");
+							$q = "select UsrNm from Person where Person.Person_ID = ?";
+							
+							$query = $Con->prepare($q);
+							$query->bind_param('i', $Person);
+							
+							$query->execute();
+							
+							$P = $query->get_result();
+							//$P = $Con->query("$q");
 							
 							while($row = $P->fetch_assoc()){
 								$Pers = $row["UsrNm"];
@@ -165,9 +178,16 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells page which user to
 						include('AlertAcademyHomeScreenCode.php');
 					}
 					
-					$q = "SELECT ClsID, ClsName FROM Cls where Cls.Person_ID = '$Person'";
+					$q = "SELECT ClsID, ClsName FROM Cls where Cls.Person_ID = ?";
 					
-					$Query = $Con->query("$q");
+					$query = $Con->prepare($q);
+					$query->bind_param('s', $Person);
+					
+					$query->execute();
+					
+					$Query = $query->get_result();
+					//$Query = $Con->query("$q");
+					
 					$count = $Query->num_rows;
 					
 					if ($count > 0){
