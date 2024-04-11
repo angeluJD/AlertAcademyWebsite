@@ -34,8 +34,13 @@ else {
 	$prof = $_POST["professor"];
 	$Sch = $_POST["school"];
 	
-	$q = "insert into Cls values(NULL, '$ClassName', '$Col', '$prof', '$Sch', (select Person.Person_ID from Person where Person.UsrNm = '$usr'))";
-	$conn->query("$q");
+	$q = "insert into Cls values(NULL, ?, ?, ?, ?, (select Person.Person_ID from Person where Person.UsrNm = ?))";
+	
+	$query = $conn->prepare($q);
+	$query->bind_param('sisss', $ClassName, $Col, $prof, $Sch, $usr);
+	
+	$query->execute();
+	//$conn->query("$q");
 	
     include('AlertAcademyHomeScreenCode.php');
 }
