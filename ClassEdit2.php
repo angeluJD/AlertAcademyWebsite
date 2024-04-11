@@ -24,8 +24,15 @@ else {
 	session_start();
 	
 	$Pers = $_POST["P"];
-	$q = "select UsrNm from Person where Person.Person_ID = '$Pers'";
-	$usrs = $conn->query("$q");
+	$q = "select UsrNm from Person where Person.Person_ID = ?";
+	
+	$query = $conn->prepare($q);
+	$query->bind_param('i', $Pers);
+					
+	$query->execute();
+	
+	$usrs = $query->get_result();
+	//$usrs = $conn->query("$q");
 	
 	if ($usrs->num_rows == 1){
 		while($row = $usrs->fetch_assoc()){
@@ -46,8 +53,14 @@ else {
 	$Sch = $_POST["school"];
 	$ID = $_POST["ID"];
 	
-	$q = "update cls set ClsID = '$ID', ClsName = '$ClassName', Color = '$Col', ProfName = '$prof', School = '$Sch', Person_ID = '$Pers' where ClsID = '$ID'";
-	$conn->query("$q");
+	$q = "update cls set ClsID = ?, ClsName = ?, Color = ?, ProfName = ?, School = ?, Person_ID = ? where ClsID = ?";
+	
+	$query = $conn->prepare($q);
+	$query->bind_param('isissii', $ID, $ClassName, $Col, $prof, $Sch, $Pers, $ID);
+	
+	$result = $query->execute();
+	
+	//$conn->query("$q");
 	
     include('AlertAcademyHomeScreenCode.php');
 }
