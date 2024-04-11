@@ -120,9 +120,16 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells page which user to
 				else{
 					$Class = $_POST["ClassEdit"];
 					
-					$q = "SELECT* FROM Cls where ClsID = '$Class'";
+					$q = "SELECT* FROM Cls where ClsID = ?";
 					
-					$Query = $Con->query("$q");
+					$query = $Con->prepare($q);
+					$query->bind_param('s', $Class);
+					
+					$query->execute();
+					
+					$Query = $query->get_result();
+					
+					//$Query = $Con->query("$q");
 					$count = $Query->num_rows;
 					
 					if ($count == 1){
@@ -148,8 +155,15 @@ let User = sessionStorage.getItem('Current_User');	<!-- tells page which user to
 						echo "<button type='submit' class='btn'>Save</button>";
 						echo "</form>";
 
-						$q = "select UsrNm from Person where Person.Person_ID = '$Per'";
-						$P = $Con->query("$q");
+						$q = "select UsrNm from Person where Person.Person_ID = ?";
+						
+						$query = $Con->prepare($q);
+						$query->bind_param('s', $Per);
+					
+						$query->execute();
+						
+						$P = $query->get_result();
+						//$P = $Con->query("$q");
 						
 						while($row = $P->fetch_assoc()){
 							$Pers = $row["UsrNm"];
