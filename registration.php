@@ -29,11 +29,14 @@ else {
     $password = $_POST['Password']; // Plain text password
 
 // SQL insert statement
-    $sql = "INSERT INTO Person (UsrNm, First_Name, Last_Name, Email, Password) 
-        VALUES ('$username', '$firstname', '$lastname', '$email', '$password')";
+   $sql = "INSERT INTO Person (UsrNm, First_Name, Last_Name, Email, Password) VALUES (?, ?, ?, ?, ?)";
+	$query = $conn->prepare($sql);
+	
+	$query->bind_param('sssss', $username, $firstname, $lastname, $email, $password);
 
+	$result = $query->execute();
 
-    if ($conn->query($sql) === TRUE) {
+    if ($result) {
         // Registration successful
 
         session_start();
