@@ -34,8 +34,14 @@ else {
 	$D = $_POST["description"];
 	$Class = $_POST["arr"];
 	
-	$q = "insert into Assign values(NULL, '$AssignmentName', '$Due', '$D', (select Person.Person_ID from Person where Person.UsrNm = '$usr'), '$Class')";
-	$conn->query("$q");
+	$q = "insert into Assign values(NULL, ?, ?, ?, (select Person.Person_ID from Person where Person.UsrNm = ?), ?)";
+	
+	$query = $conn->prepare($q);
+	$query->bind_param('ssssi', $AssignmentName, $Due, $D, $usr, $Class);
+	
+	$query->execute();
+	
+	//$conn->query("$q");
 	
     include('AlertAcademyHomeScreenCode.php');
 }
