@@ -39,15 +39,20 @@ else {
 	echo "<script type='text/JavaScript'> sessionStorage.setItem('Current_User', '$usr') </script>";	// error
 	$_SESSION['thisuser'] = $usr;
 	
-    // Retrieve form data
-    $AssignName = $_POST["name"];
+    	// Retrieve form data
+    	$AssignName = $_POST["name"];
 	$Due = $_POST["DueDate"];
 	$Cl = $_POST["arr"];
 	$Desc = $_POST["description"];
 	$ID = $_POST["ID"];
 	
-	$q = "update Assign set Assign_ID = '$ID', Assign_Name = '$AssignName', Due = '$Due', ClsID = '$Cl', Descrip = '$Desc', Person_ID = '$Pers' where Assign_ID = '$ID'";
-	$conn->query("$q");
+	$q = "update Assign set Assign_ID = ?, Assign_Name = ?, Due = ?, ClsID = ?, Descrip = ?, Person_ID = ? where Assign_ID = ?";
+	
+	$query = $conn->prepare($q);
+	$query->bind_param('issisii', $ID, $AssignName, $Due, $Cl, $Desc, $Pers, $ID);
+	
+	$result = $query->execute();
+	//$conn->query("$q");
 	
     include('AlertAcademyHomeScreenCode.php');
 }
