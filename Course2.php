@@ -25,7 +25,7 @@ else {
 	
 	$usr = $_POST["P"];
 	
-	echo "<script type='text/JavaScript'> sessionStorage.setItem('Current_User', '$usr') </script>";	// error
+	echo "<script type='text/JavaScript'> sessionStorage.setItem('Current_User', '$usr') </script>";
 	$_SESSION['thisuser'] = $usr;
 	
     // Retrieve form data
