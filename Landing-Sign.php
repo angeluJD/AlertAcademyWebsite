@@ -42,9 +42,8 @@ else{
 		include('AlertAcademyHomeScreenCode.php');
 	}
 	else {
-		 echo '<script> 
-        alert("Invalid username or password. Please try again.")
-         window.location.href = "AlertAcademy.html";</script>';
+		echo '<script> alert("Invalid username or password. Please try again.") </script>';
+		echo "<script> location.replace('AlertAcademy.html') </script>";
         exit();
 
 	}
