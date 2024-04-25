@@ -83,6 +83,21 @@
     #logout-button:hover {
         background-color: darkred; /* Darker red on hover */
     }
+
+		.sidebar input[type=submit] {
+		  width: 100%;
+		  background-color: lightgrey;
+		  color: black;
+		  padding: 14px 20px;
+		  margin: 8px 0;
+		  border: none;
+		  border-radius: 4px;
+		  cursor: pointer;
+		}
+		
+		.sidebar input[type=submit]:hover {
+			font-weight: bold;
+		}
 		
 		table.classes {
 			margin-left: auto; 
